@@ -37,7 +37,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <ComboBox promptText="English" />
+                        <ComboBox fx:id="boxLanguage" onAction="#doActivation" prefHeight="25.0" prefWidth="123.0" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -46,10 +46,10 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextArea prefHeight="357.0" prefWidth="402.0" />
+                  <TextArea fx:id="txtInserito" prefHeight="357.0" prefWidth="402.0" />
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#doSpellCheck" text="Spell Check" />
+                      <Button fx:id="spellCheckButton" mnemonicParsing="false" onAction="#doSpellCheck" text="Spell Check" />
                     </buttons>
                   </ButtonBar>
                </children>
@@ -63,11 +63,11 @@
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                <children>
                   <Label text="Wrong words" />
-                  <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="txtCorretto" editable="false" prefHeight="200.0" prefWidth="200.0" />
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                        <Label textFill="RED" />
-                      <Button mnemonicParsing="false" onAction="#doClearText" text="Clear Text" />
+                        <Label fx:id="labelErrori" textFill="RED" />
+                      <Button fx:id="clearTextButton" mnemonicParsing="false" onAction="#doClearText" text="Clear Text" />
                     </buttons>
                   </ButtonBar>
                </children>
@@ -84,7 +84,7 @@
    <bottom>
       <HBox prefHeight="0.0" prefWidth="483.0" BorderPane.alignment="CENTER">
          <children>
-            <Label>
+            <Label fx:id="labelStato">
                <HBox.margin>
                   <Insets left="5.0" top="5.0" />
                </HBox.margin>
