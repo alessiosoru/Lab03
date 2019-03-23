@@ -43,6 +43,15 @@ public class Dictionary {
 		}
 		return richWords;		
 	}
+	
+	public List<RichWord> paroleSbagliate(List<String> inputTextList) {
+		List<RichWord> wrongWords = new LinkedList<RichWord>();
+		for(RichWord rw : this.spellCheckText(inputTextList)) {
+			if(!rw.isCorretta())
+				wrongWords.add(rw);
+		}
+		return wrongWords;
+	}
 
 	/**
 	 * Dato una parola {@link String}, determina se è presente nel dizionario, 
@@ -54,6 +63,7 @@ public class Dictionary {
 	 * 
 	 */
 	private boolean cercaParola(String w) {
+		w=w.toLowerCase();
 		int pos = this.dictionary.indexOf(w);
 		if(pos==-1)
 			return false;

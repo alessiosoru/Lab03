@@ -24,6 +24,12 @@ public class RichWord {
 	public void setCorretta(boolean corretta) {
 		this.corretta = corretta;
 	}
+
+	@Override
+	public String toString() {
+		// Stampo solo la parola e non anche se è corretta o meno
+		return this.inputParola.toString()+"\n";
+	}
 	
 	
 

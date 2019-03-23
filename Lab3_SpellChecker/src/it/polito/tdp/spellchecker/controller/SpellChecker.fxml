@@ -7,11 +7,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane prefHeight="532.0" prefWidth="495.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
+<BorderPane prefHeight="532.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
@@ -37,7 +39,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <ComboBox fx:id="boxLanguage" onAction="#doActivation" prefHeight="25.0" prefWidth="123.0" />
+                        <ComboBox fx:id="boxLanguage" onAction="#handleNuovaTraduzione" prefHeight="25.0" prefWidth="123.0" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -46,10 +48,10 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextArea fx:id="txtInserito" prefHeight="357.0" prefWidth="402.0" />
+                  <TextArea fx:id="txtInserito" disable="true" prefHeight="357.0" prefWidth="402.0" />
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                      <Button fx:id="spellCheckButton" mnemonicParsing="false" onAction="#doSpellCheck" text="Spell Check" />
+                      <Button fx:id="spellCheckButton" disable="true" mnemonicParsing="false" onAction="#doSpellCheck" text="Spell Check" />
                     </buttons>
                   </ButtonBar>
                </children>
@@ -63,13 +65,20 @@
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                <children>
                   <Label text="Wrong words" />
-                  <TextArea fx:id="txtCorretto" editable="false" prefHeight="200.0" prefWidth="200.0" />
-                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                    <buttons>
-                        <Label fx:id="labelErrori" textFill="RED" />
-                      <Button fx:id="clearTextButton" mnemonicParsing="false" onAction="#doClearText" text="Clear Text" />
-                    </buttons>
-                  </ButtonBar>
+                  <TextArea fx:id="txtCorretto" disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                  <GridPane prefHeight="25.0" prefWidth="400.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="389.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="76.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label fx:id="labelErrori" prefHeight="17.0" prefWidth="387.0" textAlignment="RIGHT" textFill="RED" GridPane.halignment="RIGHT" />
+                      <Button fx:id="clearTextButton" disable="true" mnemonicParsing="false" onAction="#doClearText" prefHeight="25.0" prefWidth="75.0" text="Clear Text" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -84,7 +93,7 @@
    <bottom>
       <HBox prefHeight="0.0" prefWidth="483.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelStato">
+            <Label fx:id="labelStato" prefHeight="17.0" prefWidth="335.0">
                <HBox.margin>
                   <Insets left="5.0" top="5.0" />
                </HBox.margin>
